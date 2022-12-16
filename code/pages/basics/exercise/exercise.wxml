@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">锻炼</view>
+</cu-custom>
+<map style='width:500px;height:300px' longitude="{{longitude}}" latitude="{{latitude}}" scale="17" show-compass="ture" enable-3D="ture" enable-overlooking="ture" enable-rotate="ture" enable-zoom="ture" enable-scroll="ture" markers="{{markers}}"></map>
+
+<view class="cu-form-group">
+    <view class="title">地点</view>
+    <picker bindchange="PickerChange" value="{{placeindex}}" range="{{placepicker}}">
+        <view class="picker">
+            {{placepicker[placeindex]}}
+        </view>
+    </picker>
+</view>
+<cu-item class="cu-card dynamic text-center">
+<button bindtap="wx_getLocation" class="cu-btn bg-cyan"  style='width:50%'>查看位置</button>
+<button bindtap="addexercise" class="cu-btn bg-green" style='width:50%'>添加为检查点</button>
+</cu-item>
+<view class="padding-sm flex flex-wrap main">
+  <view class="margin-tb-sm text-center round bg-grey margin-right padding-left">
+        <span class="margin-right">出发: 我的位置</span>
+        <button class="cu-btn bg-red round"><text class="cuIcon-location lg"></text></button>
+    </view>
+    <view class="margin-tb-sm text-center round bg-grey margin-right padding-left"wx:for="{{exerciselist}}" wx:key data-index="{{index}}" >
+        <span class="margin-right">点{{index+1}}: {{item}}</span>
+        <button class="cu-btn bg-red round" bindtap="delexercise" data-index="{{index}}"><text class="cuIcon-close lg"></text></button>
+    </view>
+</view>
+<view class="footer">
+  <button class="cu-btn block bg-blue lg" bindtap="submit">
+    <text class="cuIcon-check"></text>提交</button>
+</view>

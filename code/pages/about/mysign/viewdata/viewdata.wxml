@@ -1,0 +1,21 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">详情</view>
+</cu-custom>
+<view class="cu-card dynamic padding-lr">
+    <view class="cu-item shadow ">
+        <view class="cu-form-group justify-center nav-title">
+            {{userName}} 发起{{place}}签到
+        </view>
+        <view class="cu-form-group justify-center">
+            <text class="text-grey">{{begdate}} {{begtime}} 到 {{enddate}} {{endtime}}</text>
+        </view>
+    </view>
+    <view class="cu-form-group margin justify-center">
+        <view class="cu-item">未签到名单</view>
+    </view>
+    <view class="cu-list menu margin-left" wx:for="{{list}}" data-index="index">
+        <text>{{index+1}}.{{item}}</text>
+    </view>
+
+    </view>

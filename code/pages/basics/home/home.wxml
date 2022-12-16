@@ -1,0 +1,17 @@
+
+<scroll-view scroll-y class="scrollPage">
+  <cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">工大打卡</view>
+</cu-custom>
+ 
+  <image src='/images/lg.png' mode='widthFix' class='png' style='width:100%;height:486rpx;position: absolute;bottom:50px'></image>
+  <image src='/images/hit.png' mode='widthFix' class='png' style='width:100%;height:486rpx;position: absolute;top:15%'></image>
+  <view class='nav-list' style="position:absolute;bottom:80px">
+    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.realname}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+    </navigator>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

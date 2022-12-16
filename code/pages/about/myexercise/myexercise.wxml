@@ -1,0 +1,81 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">我的锻炼</view>
+</cu-custom>
+
+<view class="cu-card">
+    <view class="cu-item shadow">
+        <view class="cu-form-group">
+            <view class="title">当前地点：</view>
+            <input placeholder="请开启NFC扫描标签" disabled model:value="{{myplace}}"></input>
+        </view>
+    </view>
+</view>
+<view class="main">
+    <view class="ing" wx:if="{{showing}}">
+        <view class="cu-card dynamic">
+            <view class="cu-item shadow">
+                <view class="cu-list menu-avatar">
+                    <view class="cu-tag bg-orange">进行中</view>
+                    <view class="cu-item">
+                        <view class="cu-avatar round lg" style="background-image:url({{userAvatarUrl}});"></view>
+                        <view class="content flex-sub">
+                            <view>{{inglist.begindate}} 的锻炼</view>
+                            <view class="text-gray text-sm flex justify-between">
+                                路线：{{inglist.list[0].name}}->{{inglist.list[inglist.list.length-1].name}}
+                            </view>
+                            <view class="text-gray text-sm flex justify-between">
+                                开始时间：{{inglist.begtime}}
+                            </view>
+                        </view>
+                        <button class="cu-btn bg-red del" bindtap="del">放弃</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-timeline margin">
+            <view class="cu-item {{item.gone?'text-green':'text-red'}}" wx:for="{{inglist.list}}" wx:key="name">
+                <view class="bg-gradual-blue content shadow">
+                    <view class="cu-capsule radius">
+                        <view class="cu-tag bg-white text-green">{{item.name}}</view>
+                    </view>
+                    <view class="margin-top-sm text-content">
+                        <view wx:if="{{item.gone}}">到达时间：{{item.time}}</view>
+                        <view wx:else="">暂未到达...</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="his">
+      
+        <view class="cu-card dynamic" wx:for="{{historylist}}">
+            <view class="cu-item shadow">
+                <view class="cu-list menu-avatar">
+                    <view class="cu-tag bg-green">已完成</view>
+                    <view class="cu-item">
+                        <view class="cu-avatar round lg" style="background-image:url({{userAvatarUrl}});"></view>
+                        <view class="content flex-sub">
+                            <view>{{item.begindate}} 的锻炼</view>
+                            <view class="text-gray text-sm flex justify-between">
+                                时间：{{item.begintime}}~{{item.endtime}}
+                            </view>
+                        </view>
+                        <button class="cu-btn bg-cyan" bindtap="view" data-index="{{index}}">详情</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+      
+    </view>
+
+
+</view>
+
+<view class="footer">
+    <button class="cu-btn block bg-purple lg" bindtap="nfcRead">
+        <text class="cuIcon-wifi"></text>开启NFC</button>
+    <button class="cu-btn block bg-cyan lg" bindtap="sign">
+        <text class="cuIcon-check"></text>签到</button>
+</view>

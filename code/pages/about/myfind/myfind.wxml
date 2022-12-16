@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">我发布的寻物启事</view>
+</cu-custom>
+
+<view class="main">
+    <view class="cu-card dynamic padding-lr" wx:if="{{list.length==0}}">
+        <view class="cu-item shadow ">
+            <view class="cu-form-group justify-center">
+                还没有发布过寻物启事
+            </view>
+        </view>
+    </view>
+    <view class="cu-card dynamic" wx:for="{{list}}" wx:for-item="user" wx:key="_id" data-index="{{index}}">
+
+        <view class="cu-item shadow">
+            <view class="cu-list menu-avatar">
+                <view class="cu-tag bg-green">发布中</view>
+                <view class="cu-item">
+                    <view class="lef"><image mode="widthFix" class="bg-img only-img" src="{{user.imgCloudList[0]}}"></image></view>
+                  
+                    <view class="content flex-sub">
+                        <view>{{user.name}}</view>
+                        <view class="text-gray text-sm flex justify-between">
+                            地点：{{user.place}}
+                        </view>
+                        <view class="text-gray text-sm flex justify-between">
+                            发布时间：{{user.time}}
+                        </view>
+                    </view>
+                    <button class="cu-btn bg-red del" bindtap="del" data-index="{{index}}">删除</button>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+</view>

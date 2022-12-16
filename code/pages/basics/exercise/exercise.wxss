@@ -1,0 +1,8 @@
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.main{
+    margin-bottom: 30px;
+}

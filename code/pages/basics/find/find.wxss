@@ -1,0 +1,13 @@
+/* pages/basics/record/record.wxss */
+/* pages/basics/record/upload/upload.wxss */
+.main{
+    margin-bottom: 30px;
+}
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.desc{
+    word-wrap: break-word;
+}

@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">发起签到</view>
+</cu-custom>
+<view class="cu-form-group margin-top">
+    <view class="title">发起人</view>
+    <input placeholder="请输入" model:value="{{admin}}" bindinput="inputadmin"></input>
+</view>
+<view class="cu-form-group">
+    <view class="title">地点</view>
+    <picker bindchange="PickerChange" value="{{placeindex}}" range="{{placepicker}}">
+        <view class="picker">
+            {{placeindex?placepicker[placeindex]:'请选择'}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group">
+    <view class="title">开始日期</view>
+    <picker mode="date" value="{{begindate}}" start="2022-05-20" end="2025-05-20" bindchange="beginDateChange">
+        <view class="picker">
+            {{begindate}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group">
+    <view class="title">开始时间</view>
+    <picker mode="time" value="{{begintime}}" start="00:00" end="23:59" bindchange="beginTimeChange">
+        <view class="picker">
+            {{begintime}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group">
+    <view class="title">结束日期</view>
+    <picker mode="date" value="{{enddate}}" start="2022-05-20" end="2025-05-20" bindchange="endDateChange">
+        <view class="picker">
+            {{enddate}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group">
+    <view class="title">结束时间</view>
+    <picker mode="time" value="{{endtime}}" start="00:00" end="23:59" bindchange="endTimeChange">
+        <view class="picker">
+            {{endtime}}
+        </view>
+    </picker>
+</view>
+<view class="cu-form-group">
+    <view class="title">参与班级</view>
+    <input placeholder="请输入要参与的班级" model:value="{{aclass}}"></input>
+    <button class="cu-btn bg-green shadow" bindtap="addclass">添加</button>
+</view>
+<view class="padding-sm flex flex-wrap main">
+    <view class="margin-tb-sm text-center round bg-grey margin-right padding-left"wx:for="{{classlist}}" wx:key >
+        <span class="margin-right">{{item}}</span>
+        <button class="cu-btn bg-red round" bindtap="delclass" data-index="{{index}}"><text class="cuIcon-close lg"></text></button>
+    </view>
+</view>
+<view class="footer">
+    <button class="cu-btn block bg-cyan lg" bindtap="submit">
+    <text class="cuIcon-upload"></text>提交</button>
+</view>

@@ -1,0 +1,51 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">待完成的签到</view>
+</cu-custom>
+
+<view class="main">
+  <view class="cu-card dynamic">
+    <view class="cu-item shadow">
+      <view class="cu-form-group">
+        <view class="title">我的地点：</view>
+        <input placeholder="请开启NFC扫描标签" disabled model:value="{{myplace}}"></input>
+      </view>
+    </view>
+  </view>
+  <view class="cu-card dynamic padding-lr" wx:if="{{list.length==0}}">
+    <view class="cu-item shadow ">
+      <view class="cu-form-group justify-center">
+        当前没有待完成的签到
+      </view>
+    </view>
+  </view>
+  <view class="cu-card dynamic" wx:for="{{list}}" wx:for-item="user" wx:key="_id" data-index="{{index}}">
+    <view class="cu-item shadow">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{user.avatar}});"></view>
+          <view class="content flex-sub">
+            <view>{{user.admin}} 发起的签到</view>
+            <view class="text-gray text-sm flex justify-between">
+              地点：{{user.place}}
+            </view>
+            <view class="text-gray text-sm flex justify-between">
+              截止时间：{{user.enddate}} {{user.endtime}}
+            </view>
+          </view>
+          <view class="cu-tag bg-orange">未完成</view>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+</view>
+
+<view class="footer">
+  <button class="cu-btn block bg-blue lg" bindtap="nfcRead">
+    <text class="cuIcon-wifi"></text>开启NFC</button>
+  <button class="cu-btn block bg-cyan lg" bindtap="sign">
+    <text class="cuIcon-check"></text>签到</button>
+</view>

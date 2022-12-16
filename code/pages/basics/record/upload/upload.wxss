@@ -1,0 +1,6 @@
+/* pages/basics/record/upload/upload.wxss */
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

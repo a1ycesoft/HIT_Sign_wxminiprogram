@@ -1,0 +1,41 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <image src="{{userAvatarUrl}}" class="round" mode="widthFix"></image>
+    <view class="text-xl margin-top title">{{userName}}
+    </view>
+    <image src="../../../images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <image src="{{userAvatarUrl}}" class="round" mode="aspectFit"></image>
+        <text class="text-grey">我的信息</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/mysign/mysign" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">我发起的签到</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/myfind/myfind" hover-class="none">
+        <text class="cuIcon-search text-cyan"></text>
+        <text class="text-grey">我发布的寻物启事</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/myrecord/myrecord" hover-class="none">
+        <text class="cuIcon-camera text-purple"></text>
+        <text class="text-grey">我的记录</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/myexercise/myexercise" hover-class="none">
+        <text class="cuIcon-activityfill text-pink"></text>
+        <text class="text-grey">我的锻炼</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

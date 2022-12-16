@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">详情</view>
+</cu-custom>
+<view class="cu-card dynamic padding-lr">
+        <view class="cu-item shadow ">
+            <view class="cu-form-group justify-center nav-title">
+                {{userName}} 在 {{list.begindate}} 的锻炼
+            </view>
+            <view class="cu-form-group justify-center">
+            <text class="text-grey"> 共经过{{list.list.length}}个地点，共用时{{h?h+'时':''}}{{m?m+'分':''}}{{s?s+'秒':''}}</text>
+               
+            </view>
+        </view>
+    </view>
+<view class="cu-timeline margin">
+    <view class="cu-item text-green" wx:for="{{list.list}}">
+        <view class="bg-gradual-blue content shadow">
+            <view class="cu-capsule radius">
+                <view class="cu-tag bg-white text-green">{{item.name}}</view>
+            </view>
+            <view class="margin-top-sm text-content">
+                <view>到达时间：{{item.time}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,42 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">记录</view>
+</cu-custom>
+<view class="cu-card dynamic padding-lr" wx:if="{{list.length==0}}">
+        <view class="cu-item shadow ">
+            <view class="cu-form-group justify-center">
+                还没有发布过记录
+            </view>
+        </view>
+    </view>
+<!-- 卡片 -->
+<view class="main">
+  <view class="cu-card dynamic" wx:for="{{list}}" wx:for-item="user" wx:key="_id" data-index="{{index}}">
+    <view class="cu-item shadow">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{user.userAvatarUrl}});"></view>
+          <view class="content flex-sub">
+            <view>{{user.userName}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{user.time}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="text-content">
+        {{user.desc}}
+      </view>
+      <view class="grid flex-sub padding-lr" wx:for="{{user.imgCloudList}}" wx:key="index">
+
+        <image mode="widthFix" class="bg-img only-img margin-top" src="{{user.imgCloudList[index]}}"></image>
+
+      </view>
+      <view class="text-gray text-sm text-right padding">
+       
+        <text class="cuIcon-like text-red"></text> {{user.likes}}
+        <button class="cu-btn bg-cyan margin-lr" bindtap="del"  data-index="{{index}}">删除</button>
+      </view>
+    </view>
+  </view>
+</view>

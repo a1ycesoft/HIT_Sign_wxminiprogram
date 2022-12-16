@@ -1,0 +1,37 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/basics/home/home",
+        "pages/basics/initiate/initiate",
+        "pages/basics/signin/signin",
+        "pages/basics/find/find",
+        "pages/basics/find/upload/upload",
+        "pages/basics/exercise/exercise",
+        "pages/basics/record/record",
+        "pages/basics/record/upload/upload",
+        "pages/about/about/about",
+        "pages/about/mysign/mysign",
+        "pages/about/mysign/viewdata/viewdata",
+        "pages/about/myfind/myfind",
+        "pages/about/myrecord/myrecord",
+        "pages/about/myexercise/myexercise",
+        "pages/about/myexercise/viewdata/viewdata",
+        "pages/about/home/home"
+    ],
+    
+    "window": {
+        "navigationBarBackgroundColor": "#39b54a",
+        "navigationBarTitleText": "Color UI",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+    },
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你在哪里？" 
+          }
+    },
+    "sitemapLocation": "sitemap21.json"
+}

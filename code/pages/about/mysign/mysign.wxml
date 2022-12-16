@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">我发起的签到</view>
+</cu-custom>
+
+<view class="main">
+    <view class="cu-card dynamic padding-lr" wx:if="{{list.length==0}}">
+        <view class="cu-item shadow ">
+            <view class="cu-form-group justify-center">
+                还没有发起过签到
+            </view>
+        </view>
+    </view>
+    <view class="cu-card dynamic" wx:for="{{list}}" wx:for-item="user" wx:key="_id" data-index="{{index}}">
+
+        <view class="cu-item shadow">
+            <view class="cu-list menu-avatar">
+                <view class="cu-tag bg-grey" wx:if="{{user.isfinish}}">已结束</view>
+                <view class="cu-tag bg-green" wx:else>进行中</view>
+                <view class="cu-item">
+                    <view class="cu-avatar round lg" style="background-image:url({{user.avatar}});"></view>
+                    <view class="content flex-sub">
+                        <view>{{user.admin}} 发起的签到</view>
+                        <view class="text-gray text-sm flex justify-between">
+                            地点：{{user.place}}
+                        </view>
+                        <view class="text-gray text-sm flex justify-between">
+                            截止时间：{{user.enddate}} {{user.endtime}}
+                        </view>
+                       
+                    </view>
+                    <button class="cu-btn bg-red del" bindtap="del" data-index="{{index}}">删除</button>
+                    <button class="cu-btn bg-cyan no" bindtap="view" data-index="{{index}}">详情</button>
+                </view>
+                <view class="cu-list margin-left ll margin-top" wx:for="{{nosign[index]}}">
+                   {{index+1}}.{{item}}
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+</view>

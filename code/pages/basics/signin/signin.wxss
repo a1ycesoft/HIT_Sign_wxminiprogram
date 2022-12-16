@@ -1,0 +1,14 @@
+
+.main{
+    margin-bottom: 30px;
+}
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.right{
+    position: absolute;
+    right: 0;
+}
+

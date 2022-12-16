@@ -1,0 +1,36 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">上传</view>
+</cu-custom>
+<view class="main">
+    <view class="cu-bar bg-white margin-top">
+        <view class="action">
+            图片上传
+        </view>
+        <view class="action">
+            {{imgList.length}}/4
+        </view>
+    </view>
+    <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>
+    <view class="cu-form-group align-start margin-top">
+        <view class="title">文字</view>
+        <textarea maxlength="150" placeholder="请输入" model:value="{{desc}}"></textarea>
+    </view>
+</view>
+
+<view class="footer">
+    <button class="cu-btn block bg-cyan lg" bindtap="submit">
+    <text class="cuIcon-upload"></text>提交</button>
+</view>

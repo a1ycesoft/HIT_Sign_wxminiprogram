@@ -1,0 +1,6 @@
+page {
+    background-color: #fff;
+}
+.nav-list {
+    opacity: 0.8;
+}
